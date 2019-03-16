@@ -15,6 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by zhizhao.zhang on 2018/11/14 14:44.
@@ -32,12 +33,16 @@ public abstract class JpaService<ID extends Serializable, T extends JpaEntity<ID
      */
     @Override
     public T update(T source) {
-        T old;
         ID id = source.primaryKey();
-        if (id == null || (old = repository.findOne(id)) == null) {
+        if (id == null) {
             throw new PrimaryKeyLoseException("primary key not allow null");
         }
-        PropertiesUtils.copyLocalPropertiesWithTarget(old, source, PropertiesUtils.CopyRule.NULL);
+        Optional<T> optional = repository.findById(id);
+        if (!optional.isPresent()) {
+            return null;
+        }
+
+        PropertiesUtils.copyLocalPropertiesWithTarget(optional.get(), source, PropertiesUtils.CopyRule.NULL);
         source.setUpdateTime(new Date());
         source = repository.save(source);
         log.info("update {} success, used id:{}", source.getClass().getName(), JSON.toJSONString(id));
@@ -62,7 +67,7 @@ public abstract class JpaService<ID extends Serializable, T extends JpaEntity<ID
             ac.setUpdateTime(date);
         }
 
-        all = repository.save(all);
+        all = repository.saveAll(all);
         return all;
     }
 
@@ -71,7 +76,7 @@ public abstract class JpaService<ID extends Serializable, T extends JpaEntity<ID
      */
     @Override
     public T findOne(ID id) {
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     /**

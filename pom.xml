@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.zzz</groupId>
         <artifactId>spring-builder</artifactId>
-        <version>0.0.3</version>
+        <version>0.0.4-SNAPSHOT</version>
     </parent>
 
     <groupId>com.zzz.util</groupId>
