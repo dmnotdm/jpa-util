@@ -16,12 +16,12 @@
     <name>jpa-util-mysql</name>
 
     <!-- @formatter:off -->
-    <!--<dependencyManagement>-->
-        <!--<dependencies>-->
-            <!--<dependency><groupId>com.zzz</groupId><artifactId>jpa-util-commons</artifactId><version>${jpa-util-commons.version}</version></dependency>-->
-        <!--</dependencies>-->
-    <!--</dependencyManagement>-->
+    <dependencyManagement>
+    </dependencyManagement>
     <!-- @formatter:on -->
+
+    <build>
+    </build>
 
     <!-- @formatter:off -->
     <dependencies>
