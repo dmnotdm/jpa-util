@@ -6,8 +6,8 @@
 
     <parent>
         <groupId>com.zzz</groupId>
-        <artifactId>maven-builder</artifactId>
-        <version>0.0.3-SNAPSHOT</version>
+        <artifactId>spring-dependency</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.zzz.util</groupId>
@@ -25,8 +25,6 @@
             <dependency><groupId>com.zzz.util</groupId><artifactId>jpa-util-commons</artifactId><version>${project.version}</version></dependency>
             <dependency><groupId>com.zzz.util</groupId><artifactId>jpa-util-mysql</artifactId><version>${project.version}</version></dependency>
             <dependency><groupId>com.zzz.util</groupId><artifactId>jpa-util-mongo</artifactId><version>${project.version}</version></dependency>
-
-            <dependency><groupId>com.zzz</groupId><artifactId>spring-dependency</artifactId><version>0.0.1-SNAPSHOT</version><type>pom</type><scope>import</scope></dependency>
 
             <dependency><groupId>com.alibaba</groupId><artifactId>fastjson</artifactId><version>${fastjson.version}</version></dependency>
         </dependencies>
