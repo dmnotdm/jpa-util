@@ -43,7 +43,7 @@ public abstract class JpaService<ID extends Serializable, T extends JpaEntity<ID
         }
 
         PropertiesUtils.copyLocalPropertiesWithTarget(optional.get(), source, PropertiesUtils.CopyRule.NULL);
-        source.setUpdateTime(new Date());
+        source.setUpdateTime(System.currentTimeMillis());
         source = repository.save(source);
         log.info("update {} success, used id:{}", source.getClass().getName(), JSON.toJSONString(id));
         return source;
@@ -64,7 +64,7 @@ public abstract class JpaService<ID extends Serializable, T extends JpaEntity<ID
         Date date = new Date();
         for (T ac : all) {
             PropertiesUtils.copyLocalPropertiesWithSource(source, ac, PropertiesUtils.CopyRule.NOT_NULL);
-            ac.setUpdateTime(date);
+            ac.setUpdateTime(System.currentTimeMillis());
         }
 
         all = repository.saveAll(all);
