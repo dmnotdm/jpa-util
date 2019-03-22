@@ -16,5 +16,5 @@ public interface JpaEntity<T> extends Serializable {
     /**
      * 没有updateTime字段使用空实现
      */
-    void setUpdateTime(Date updateTime);
+    void setUpdateTime(Long updateTime);
 }
