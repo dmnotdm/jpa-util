@@ -6,17 +6,18 @@
 
     <parent>
         <groupId>com.zzz</groupId>
-        <artifactId>spring-dependency</artifactId>
-        <version>0.0.1</version>
+        <artifactId>maven-builder</artifactId>
+        <version>0.0.3</version>
     </parent>
 
     <groupId>com.zzz.util</groupId>
     <artifactId>jpa-util</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
 
     <properties>
         <fastjson.version>1.2.47</fastjson.version>
+        <spring-dependency.version>0.0.2</spring-dependency.version>
     </properties>
 
     <!-- @formatter:off -->
@@ -27,6 +28,8 @@
             <dependency><groupId>com.zzz.util</groupId><artifactId>jpa-util-mongo</artifactId><version>${project.version}</version></dependency>
 
             <dependency><groupId>com.alibaba</groupId><artifactId>fastjson</artifactId><version>${fastjson.version}</version></dependency>
+
+            <dependency><groupId>com.zzz</groupId><artifactId>spring-dependency</artifactId><version>${spring-dependency.version}</version><scope>import</scope><type>pom</type></dependency>
         </dependencies>
     </dependencyManagement>
     <!-- @formatter:on -->

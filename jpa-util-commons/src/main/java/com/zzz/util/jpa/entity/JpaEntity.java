@@ -1,7 +1,6 @@
 package com.zzz.util.jpa.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by zhizhao.zhang on 2018/12/27 15:54.

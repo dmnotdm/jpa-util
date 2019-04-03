@@ -21,8 +21,9 @@ import java.util.List;
  * Description:
  */
 public class BaseController<ID extends Serializable, T extends JpaEntity<ID>> {
+
     @Autowired
-    private IService<ID, T> service;
+    protected IService<ID, T> service;
 
     /**
      * 成功时返回记录的对象，
@@ -64,7 +65,7 @@ public class BaseController<ID extends Serializable, T extends JpaEntity<ID>> {
         if (page == null || size == null) {
             return service.findByExample(example);
         }
-        return service.findByExample(example, new PageRequest(page, size));
+        return service.findByExample(example, PageRequest.of(page, size));
     }
 
     /**
